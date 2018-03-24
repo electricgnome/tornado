@@ -1,1 +1,1 @@
-web: python3 jin.py
+web: python jin.py
