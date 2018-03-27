@@ -1,0 +1,340 @@
+<html>
+
+
+
+<!--<script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+<script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+-->
+
+<script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<!-- jQuery easing plugin -->
+<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
+
+
+<script type="text/javascript" src="static/js/main.js"></script>
+
+<body>
+
+<!-- multistep form -->
+<form id="msform">
+
+	
+	<!-- progressbar -->
+	<ul id="progressbar">
+		<li class="active">Drivers</li>
+		<li>Discounts</li>
+		<li>Points</li>
+		<li>Vehicles</li>
+		<li>Coverage</li>
+		<li>Lein Holder</li>
+	</ul>
+	<!-- fieldsets -->
+	<fieldset id="driver_info">
+	
+		<h2 class="fs-title">Primary Driver information</h2>
+		<h3 class="fs-subtitle">This is step 1</h3>
+		
+		<span class="level">
+		<input class="c1" type="text" name="first_name" placeholder="First Name" required/>
+		<input class="c2" type="text" name="last_name" placeholder="Last Name" required/>
+		</span>
+
+		<span class="level">
+		<div class="wrapper">
+		<span class="tooltip">Where can we reach you?</span>
+
+		<input class="c1" type="tel" name="cell" placeholder="Cell Phone" required/>
+		</div>
+		<div class="wrapper">
+			<span class="tooltip">do you check this regularly?</span>
+			<input class="c2" type="email" name="email" placeholder="E-mail" required/>
+		</div>
+		</span>
+		
+		<span class="level">
+		<span class="c1" id="radios" required>
+			<input type="radio" name="gender" value="male" />Male
+			<br>
+			<input type="radio" name="gender" value="female">Female
+		</span>
+		<div class="wrapper">
+			<span class="c2" id="radios" required>
+			<input type="radio" name="married" value="single" />Single
+			<br>
+			<input type="radio" name="married" value="married">Married (civil union)
+			<span class="tooltip">You may qualify for a marriage discount, you will need to add your spouse, but can exclude them if desired</span>
+			</span>
+		</div>
+		</span>
+		<span class="level">
+		
+		<span class="c1" id="selects">Date of Birth:
+		<br>
+		<input type="date" name="DOB" required/>
+		</span>
+		<span class="c2" id="selects">Relation to primary driver:
+			<br>
+				<select name="relation" id="selects_field">
+				<option value="self">self</option>
+				<option value="spouse">spouse/common law</option>
+				<option value="sibling">sibling</option>
+				<option value="parent">parent</option>
+				<option value="child">child</option>
+				<option value="other">other</option>
+			</select>
+		</span>
+		</span>
+		<span class="level">
+		<span class="c1" id="selects">Form of ID (Choose one):
+		<select name="ID_card" id="selects_field" >
+			<option value="Tx_DL">Texas Drivers License</option>
+			<option value="Tx_ID">Texas ID</option>
+			<option value="Other_ST_DL">Out of State</option>
+			<option value="PASSPORT">Passport</option>
+			<option value="MATRICULA">Matricula</option>
+			<option value="INTERNATIONAL">International Drivers License</option>
+			<option value="NO_ID">No ID</option>
+		</select>
+		</span>
+		<input style="margin-top:22px" class="c2" type="text" name="DL_NO" placeholder="ID Number" required/>
+		</span>
+
+		<span class="level">
+				<div class="wrapper">
+			<span class="tooltip">Please provide the address where the car will be kept at night</span>
+		<input class="c1" type="text" name="address" placeholder="Street Address" required/>
+
+		<input class="c2" type="text" name="city" placeholder="City" required/>
+		</div>
+		</span>
+		<span class="level">
+		<input class="c1" type="text" name="state" list="states" placeholder="State" />
+		<input class="c2" type="text" name="zip" placeholder="Zip Code" />
+		</span>
+		
+		<span id="buttons">
+		<input type="button" name="next" class="next action-button" value="Next" />
+		</span>
+
+
+	</fieldset>
+
+	<fieldset id="discounts">
+		<h2 class="fs-title">Discounts</h2>
+		<h3 class="fs-subtitle">Lets see what discounts you qualify for</h3>
+		<div class="wrapper">
+			<span class="tooltip">Your name or your spouse's name must appear on the deed.</span>
+			Are you a Home Owner: &nbsp;&nbsp;&nbsp;
+			<input type="radio" name="Home_Owner" value="Yes" />Yes
+			<input type="radio" name="Home_Owner" value="No" checked/>No
+		</div>
+		<div class="wrapper">
+			<span class="tooltip">If you are listed on someone else's policy, or your previous policy recently lapsed (29 days or less) you can still qualify for a discount.</span>
+			<br>Are you currently Insured (personal auto): &nbsp;
+			<input type="radio" name="currently_insured" value="Yes" />Yes
+			<input type="radio" name="currently_insured" value="No" checked/>No
+		</div>
+
+		<div class="optional" id="pop">
+			<span class="level">
+			<div class="wrapper">
+				<br>
+				<br>
+				<span class="tooltip">6 and 12 months qualify you for a discount. You will need to provide proof of prior insurance, such as "Insurance ID cards" in order to have the discount applied.</span>
+			<span class="c1">How long have you had auto insurance (without a lapse in coverage) 
+				</span>
+			<span class="c2">
+			<select  name="length" id="selects_field">
+				<option value="less_than_6">Less than 6 months</option>
+				<option value="6_months">6 to 11 months</option>
+				<option value="12_months">12 months or longer</option>
+
+			</select></span>
+
+		</div>
+		</span>
+
+		<input type="text" name="carrier" placeholder="with who? (Geico, progressive, etc...)" />
+
+		</div>
+
+		<span id="buttons">
+		<input type="button" name="previous" class="previous action-button" value="Previous" />
+		<input type="button" name="next" class="next action-button" value="Next" />
+		</span>
+	</fieldset>
+
+	<fieldset id="points">
+		<h2 class="fs-title">Accidents or Tickets?</h2>
+		<h3 class="fs-subtitle">Your record will be verified. If you provide honest information, you may qualify for a discount</h3>
+
+
+		<div class="wrapper">
+			<span class="tooltip">Responding honestly may provide a full disclosure discount.</span>
+			<br>Any accidents or tickets in the past 3 years? &nbsp;
+			<input type="radio" name="tickets_accidents" value="Yes" />Yes
+			<input type="radio" name="tickets_accidents" value="No" checked/>No
+		</div>
+
+		<div class="optional" id="accidents">
+			<span class="level">
+			<div class="wrapper">
+			<span class="tooltip"></span>
+			<br>
+			<span class="c1">How many tickets have you had in the past 3 years?</span>
+			<span class="c2"><input type="number" min="0" max="4" value="0" name="ticekts"></span>
+
+		</div>
+		</span>
+
+		<span class="level">
+			<div class="wrapper">
+				<span class="tooltip"></span>
+		<br>
+		<span class="c1">How many accidents have you had in the past 3 years?</span>
+		<span class="c2"><input type="number" min="0" max="4" value="0" name="accidents"></span>
+		</div>
+		</span>
+
+		</div>
+
+
+		<span id="buttons">
+		<input type="button" name="previous" class="previous action-button" value="Previous" />
+		<input type="button" name="next" class="next action-button" value="Next" />
+		</span>
+	</fieldset>
+
+
+	<fieldset id="vins">
+		<h2 class="fs-title">Vehicles</h2>
+		<h3 class="fs-subtitle">What Vehicle are we insuring today?</h3>
+
+		<input class="c1" type="text" name="VIN" placeholder="(VIN) Vehicle Identification Number" required />
+		<input class="c2" type="text" name="year" placeholder="year" />
+		<input class="c1" type="text" name="brand" placeholder="brand" />
+		<input class="c2" type="text" name="model" placeholder="model" />
+
+		<span id="buttons">
+		<input type="button" name="previous" class="previous action-button" value="Previous" />
+		<input type="button" name="next" class="next action-button" value="Next" />
+		</span>
+	</fieldset>
+
+	<fieldset id="coverage">
+		<h2 class="fs-title">Coverage</h2>
+		<h3 class="fs-subtitle">How much coverage do you want?</h3>
+
+		<span class="c1" id="selects">Desired coverage:
+			<br>
+				<select name="coverage" id="selects_field">
+				<option value="liability">Liability Only</option>
+				<option value="full_coverage">Comprihensive/Collision(Full Coverage)</option>
+			</select>
+		</span>
+		<div class="optional" id="full_cover">
+			<span class="c2" id="selects">Desired Deductible:
+			<br>
+				<select name="deductible" id="selects_field">
+				<option value="500">$500.00</option>
+				<option value="1000">$1,000.00</option>
+			</select>
+		</span>
+
+			<div style="text-align:left">
+				<br>
+				<h3>Additional coverage:</h3>
+				<br>
+				<input type="checkbox" name="PIP" value="PIP">Personal Injury Protection (PIP)
+				<br>
+				<input type="checkbox" name="UM" value="UM">Uninsured Motorist
+				<br>
+				<input type="checkbox" name="RENTAL" value="Rental">Rental
+				<br>
+				<input type="checkbox" name="Towing" value="Towing">Towing
+			</div>
+		</div>
+
+		<span id="buttons">
+		<input type="button" name="previous" class="previous action-button" value="Previous" />
+		<input type="button" name="next" class="next action-button" value="Next" />
+		</span>
+	</fieldset>
+
+	<fieldset id="leins">
+		<h2 class="fs-title">Lein Holder (optional)</h2>
+		<h3 class="fs-subtitle">Who are you financing your vehilce with?</h3>
+
+		<input class="c1" type="text" name="lein_holder_name" placeholder="Lein Holder Name" />
+		<input class="c2" type="text" name="lein_holder_address" placeholder="Lein Holder Address" />
+		<input class="c1" type="tel" name="lein_holder_phone" placeholder="Lein Holder Phone" />
+		<input class="c2" type="tel" name="lein_holder_fax" placeholder="Lein Holder Fax" />
+		<span id="buttons">
+		<input type="button" name="previous" class="previous action-button" value="Previous" />
+		<input type="submit" name="submit" class="submit action-button" value="Submit" />
+		</span>
+	</fieldset>
+
+</form>
+
+
+<datalist id="states">
+	<option value="AL">Alabama</option>
+	<option value="AK">Alaska</option>
+	<option value="AZ">Arizona</option>
+	<option value="AR">Arkansas</option>
+	<option value="CA">California</option>
+	<option value="CO">Colorado</option>
+	<option value="CT">Connecticut</option>
+	<option value="DC">District of Columbia</option>
+	<option value="DE">Delaware</option>
+	<option value="FL">Florida</option>
+	<option value="GA">Georgia</option>
+	<option value="HI">Hawaii</option>
+	<option value="ID">Idaho</option>
+	<option value="IL">Illinois</option>
+	<option value="IN">Indiana</option>
+	<option value="IA">Iowa</option>
+	<option value="KS">Kansas</option>
+	<option value="KY">Kentucky</option>
+	<option value="LA">Louisiana</option>
+	<option value="ME">Maine</option>
+	<option value="MD">Maryland</option>
+	<option value="MA">Massachusetts</option>
+	<option value="MI">Michigan</option>
+	<option value="MN">Minnesota</option>
+	<option value="MS">Mississippi</option>
+	<option value="MO">Missouri</option>
+	<option value="MT">Montana</option>
+	<option value="NE">Nebraska</option>
+	<option value="NV">Nevada</option>
+	<option value="NH">New Hampshire</option>
+	<option value="NJ">New Jersey</option>
+	<option value="NM">New Mexico</option>
+	<option value="NY">New York</option>
+	<option value="NC">North Carolina</option>
+	<option value="ND">North Dakota</option>
+	<option value="OH">Ohio</option>
+	<option value="OK">Oklahoma</option>
+	<option value="OR">Oregon</option>
+	<option value="PA">Pennsylvania</option>
+	<option value="RI">Rhode Island</option>
+	<option value="SC">South Carolina</option>
+	<option value="SD">South Dakota</option>
+	<option value="TN">Tennessee</option>
+	<option value="TX">Texas</option>
+	<option value="UT">Utah</option>
+	<option value="VT">Vermont</option>
+	<option value="VA">Virginia</option>
+	<option value="WA">Washington</option>
+	<option value="WV">West Virginia</option>
+	<option value="WI">Wisconsin</option>
+	<option value="WY">Wyoming</option>
+</datalist>
+
+
+
+
+</body>
+</html>
