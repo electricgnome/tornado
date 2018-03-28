@@ -23,11 +23,17 @@ class MainHandler(TemplateHandler):
       'no-store, no-cache, must-revalidate, max-age=0')
     self.render_template("index.html", {'name': 'World'})
 
-
+class FormHandler(tornado.web.RequestHandler):
+  def post (self):
+    data = get_arguments()
+    if is_valid(data):
+      self.redirect("/form-success-page") 
+    self.render_template("form.html", {'form_data': data})
 
 def make_app():
   return tornado.web.Application([
     (r"/", MainHandler),
+    (r"/form", FormHandler),
     (r"/static/(.*)",
     tornado.web.StaticFileHandler,
     {'path': 'static'}),
