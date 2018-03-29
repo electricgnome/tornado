@@ -21,22 +21,28 @@ class MainHandler(TemplateHandler):
     self.set_header(
       'Cache-Control',
       'no-store, no-cache, must-revalidate, max-age=0')
-    self.render_template("index.html", {'name': 'World'})
+    self.render_template("index.html", {})
 
-class FormHandler(tornado.web.RequestHandler):
-  def post (self):
-    data = get_arguments()
-    if is_valid(data):
-      self.redirect("/form-success-page") 
-    self.render_template("form.html", {'form_data': data})
+class PageHandler(TemplateHandler):
+  def get(self, page):
+    context = {}
+    if page == 'form-success':
+      context['message'] = "YAY!"
+      
+    page = page + '.html'
+    self.set_header(
+      'Cache-Control',
+      'no-store, no-cache, must-revalidate, max-age=0')
+    self.render_template(page, context)
 
 def make_app():
   return tornado.web.Application([
     (r"/", MainHandler),
-    (r"/form", FormHandler),
-    (r"/static/(.*)",
-    tornado.web.StaticFileHandler,
-    {'path': 'static'}),
+    (
+      r"/static/(.*)",
+      tornado.web.StaticFileHandler,
+      {'path': 'static'}
+    ),
   ], autoreload=True)
 
 if __name__ == "__main__":
