@@ -1,3 +1,7 @@
 $(document).ready(function(){
-    $('.datepicker').datepicker();
+    $('.datepicker').datepicker({
+      yearRange: 90
+    });
+    $('select').formSelect();
   });
+

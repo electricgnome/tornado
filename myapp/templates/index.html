@@ -60,12 +60,23 @@
 
             <div class="row">
                 <div class="col s3">
-                    <input type="text" class="datepicker">
+                    <label for="birthdate" class>birthdate</label>
+                    <input id="birthdate" type="text" class="datepicker">
+                    
 
                 </div>
 
-                <div class="col s3">
-
+                <div class=" input-field col s3">
+                    <select>
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="1">Self</option>
+                        <option value="2">Spouse/common law</option>
+                        <option value="3">Sibiling</option>
+                        <option value="3">Parent</option>
+                        <option value="3">Child</option>
+                        <option value="3">Other</option>
+                      </select>
+                      <label>Relation to primary driver:</label>
                 </div>
             </div>
 

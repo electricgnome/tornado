@@ -37,12 +37,8 @@ class PageHandler(TemplateHandler):
 
 def make_app():
   return tornado.web.Application([
-    (r"/", MainHandler),
-    (
-      r"/static/(.*)",
-      tornado.web.StaticFileHandler,
-      {'path': 'static'}
-    ),
+    (r"/static/(.*)" ,tornado.web.StaticFileHandler, {'path': 'static'}),
+    (r"/", MainHandler)
   ], autoreload=True)
 
 if __name__ == "__main__":
