@@ -2,8 +2,13 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-image: url('http://www.electricgnome.com/codiad/workspace/Kappa/image/polonez_car.png');
   }
 
   main {
     flex: 1 0 auto;
+  }
+
+  .optional {
+    display:none;
   }

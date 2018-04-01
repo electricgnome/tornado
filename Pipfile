@@ -11,3 +11,4 @@ pylint = "*"
 "boto3" = "*"
 
 [dev-packages]
+pylint = "*"

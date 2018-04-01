@@ -7,55 +7,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"> {% block head %}
   <title>{% block title %}{% endblock %} -Kappa Insurance </title>
   <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" type ="text/css" href="static/css/main.css"> 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-
-  {% endblock %}
+  <link rel="stylesheet" type="text/css" href="static/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"> {% endblock %}
 </head>
 
 <body>
-  <div id="header">{% block header %} 
+  <div id="header">{% block header %}
+    <div class="navbar-fixed">
       <nav>
-          <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Kappa Insurance Group</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Auto Quote Request</a></li>
-              <li><a href="#">Contact Us</a></li>
-            </ul>
-          </div>
-        </nav>
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo">Kappa Insurance</a>
+          <a href="#" data-target="slide-out" class="sidenav-trigger">
+            <i class="material-icons">menu</i>
+          </a>
+          <ul class="right hide-on-med-and-down">
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">Auto Quote Request</a>
+            </li>
+            <li>
+              <a href="#">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <ul class="sidenav" id="slide-out">
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">Auto Quote Request</a>
+        </li>
+        <li>
+          <a href="#">Contact Us</a>
+        </li>
+      </ul>
+    </div>
     {% endblock %}</div>
   <div id="content">{% block content %}{% endblock %}</div>
   <div id="footer">
 
     {% block footer %}
-    
-    <footer class="page-footer">
-        <div class="container">
-          <div class="row">
-            <div class="col l6 s12">
-              <h5 class="white-text">Kappa Insurance Group, LLC</h5>
-              <p class="grey-text text-lighten-4">We provide affordable piece of mind.</p>
-            </div>
-            <div class="col l4 offset-l2 s12">
-              <h5 class="white-text">Links</h5>
-              <ul>
-                <li><a class="grey-text text-lighten-3" href="#!">Instagram</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Email</a></li>
-              </ul>
-            </div>
+
+    <footer class="page-footer hide-on-small-only">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Kappa Insurance Group, LLC</h5>
+            <p class="grey-text text-lighten-4">We provide affordable piece of mind.</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li>
+                <a class="grey-text text-lighten-3" href="#!">Instagram</a>
+              </li>
+              <li>
+                <a class="grey-text text-lighten-3" href="#!">Twitter</a>
+              </li>
+              <li>
+                <a class="grey-text text-lighten-3" href="#!">Facebook</a>
+              </li>
+              <li>
+                <a class="grey-text text-lighten-3" href="#!">Email</a>
+              </li>
+            </ul>
           </div>
         </div>
-        <div class="footer-copyright">
-          <div class="container">
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
           © 2018 Copyright Text
           <a class="grey-text text-lighten-4 right" href="#!">Map</a>
-          </div>
         </div>
-      </footer>
+      </div>
+    </footer>
 
 
 
@@ -68,8 +98,7 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <!-- Optional JavaScript -->
-    <script type="text/javascript" src="static/js/main.js"></script> 
-    {% endblock %}
+    <script type="text/javascript" src="static/js/main.js"></script> {% endblock %}
   </div>
 </body>
 
