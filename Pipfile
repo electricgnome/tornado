@@ -1,14 +1,22 @@
 [[source]]
+
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
+
 [packages]
+
 ipython = "*"
 tornado = "*"
 pylint = "*"
 "jinja2" = "*"
 "boto3" = "*"
+queries = "*"
+requests = "*"
+"markdown2" = "*"
+
 
 [dev-packages]
+
 pylint = "*"

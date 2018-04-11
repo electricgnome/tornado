@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block title %}Homepage{% endblock %} {% block content %}
+
+<div class="container" style="margin-top:80px;">
+  <form class="col s6" action="/" method="GET" id="form">
+    <div class="row">
+      <div class="input field col s6 offset-m3 m3">
+        <input name='city' id="city" type="text" class="validate">
+        <label for="city">City</label>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit </button>
+    </div>
+    <div class="row">
+      {% if weather_data %}
+      <hr> 
+      Temp: {{ weather_data['main']['temp'] }} C <br>
+      Min Temp: {{ weather_data['main']['temp_min'] }} C <br>
+      Max Temp: {{ weather_data['main']['temp_max']  }} C <br>
+      {% else %}
+      
+      <h6>TEST</h6>
+      {% endif %}
+    </div>
+  </form>
+</div>
+{% endblock %}
