@@ -29,6 +29,10 @@ class templateHandler(tornado.web.RequestHandler):
     template = ENV.get_template(tpl)
     self.write(template.render(**context))
 
+# ============================================================
+
+
+
 
 class MainHandler(templateHandler):
   def get(self, page='home'):
@@ -49,7 +53,7 @@ class MainHandler(templateHandler):
     self.render_template(page, {'weather_data': weather_data})
 
 
-
+# ===================================================
 def make_app():
   return tornado.web.Application([
     (r"/", MainHandler),
